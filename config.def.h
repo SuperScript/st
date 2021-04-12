@@ -5,7 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Input Mono Medium:size=18:antialias=true:autohint=true";
+static char *font = "Iosevka Term SS01:size=18:antialias=true:autohint=true";
+/* static char *font = "Iosevka Fixed:size=18:antialias=true:autohint=true"; */
+/* static char *font = "Iosevka Term SS02:size=18:antialias=true:autohint=true"; */
+/* static char *font = "Iosevka Slab:size=18:antialias=true:autohint=true"; */
+/* static char *font = "Iosevka Term SS08:size=24:antialias=true:autohint=true"; */
 static int borderpx = 2;
 
 /*
@@ -25,7 +29,7 @@ char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.0;
-static float chscale = 1.2;
+static float chscale = 1.0;
 
 /*
  * word delimiter string
@@ -63,7 +67,7 @@ static unsigned int cursorthickness = 4;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "tmux-256color";
 
 /*
  * spaces per tab
