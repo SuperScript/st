@@ -6,7 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 /* static char *font = "monospace:size=18"; */
-static char *font = "Iosevka SS01:size=20:antialias=true:autohint=true";
+/* static char *font = "Iosevka SS01:size=20:antialias=true:autohint=true"; */
+static char *font = "Iosevka Nerd Font Mono:size=20:antialias=true:autohint=true";
 /* static char *font = "Iosevka Term SS01:size=18:antialias=true:autohint=true"; */
 /* static char *font = "Iosevka Fixed:size=18:antialias=true:autohint=true"; */
 /* static char *font = "Iosevka Term SS02:size=18:antialias=true:autohint=true"; */
