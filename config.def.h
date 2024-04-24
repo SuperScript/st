@@ -5,14 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-/* static char *font = "monospace:size=18"; */
-/* static char *font = "Iosevka SS01:size=20:antialias=true:autohint=true"; */
-static char *font = "Iosevka Nerd Font Mono:size=20:antialias=true:autohint=true";
-/* static char *font = "Iosevka Term SS01:size=18:antialias=true:autohint=true"; */
-/* static char *font = "Iosevka Fixed:size=18:antialias=true:autohint=true"; */
-/* static char *font = "Iosevka Term SS02:size=18:antialias=true:autohint=true"; */
-/* static char *font = "Iosevka Slab:size=18:antialias=true:autohint=true"; */
-/* static char *font = "Iosevka Term SS08:size=24:antialias=true:autohint=true"; */
+/* static char *font = "Iosevka Nerd Font Mono:size=20:antialias=true:autohint=true";*/
+static char *font = "SauceCodePro Nerd Font Mono:size=16:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -90,45 +84,52 @@ char *termname = "tmux-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors dark palette (16 first used in escape sequence) */
-static const char *altcolorname[] = {
-	/* solarized dark */
-	"#073642",  /*  0: black    */
-	"#dc322f",  /*  1: red      */
-	"#859900",  /*  2: green    */
-	"#b58900",  /*  3: yellow   */
-	"#268bd2",  /*  4: blue     */
-	"#d33682",  /*  5: magenta  */
-	"#2aa198",  /*  6: cyan     */
-	"#eee8d5",  /*  7: white    */
-	"#002b36",  /*  8: brblack  */
-	"#cb4b16",  /*  9: brred    */
-	"#586e75",  /* 10: brgreen  */
-	"#657b83",  /* 11: bryellow */
-	"#839496",  /* 12: brblue   */
-	"#6c71c4",  /* 13: brmagenta*/
-	"#93a1a1",  /* 14: brcyan   */
-	"#fdf6e3",  /* 15: brwhite  */
+static const char *colorname[] = {
+	/* selenized light */
+	"#ece3cc",  /*  0: black, bg_1    */
+	"#d2212d",  /*  1: red      */
+	"#489100",  /*  2: green    */
+	"#ad8900",  /*  3: yellow   */
+	"#0072d4",  /*  4: blue     */
+	"#ca4898",  /*  5: magenta  */
+	"#009c8f",  /*  6: cyan     */
+	"#909995",  /*  7: white, dim_0, base2    */
+	"#d5cdb6",  /*  8: brblack, bg_2, base03  */
+	"#cc1729",  /*  9: brred    */
+	"#428b00",  /* 10: brgreen  */
+	"#a78300",  /* 11: bryellow */
+	"#006dce",  /* 12: brblue   */
+	"#c44392",  /* 13: brmagenta*/
+	"#00978a",  /* 14: brcyan   */
+	"#3a4d53",  /* 15: brwhite, fg_1  */
+	[255] = 0,
+	"#fbf3db",  /* 256: bg_0 */
+	"#53676d"   /* 257: fg_0 */
 };
 
-/* Terminal colors light palette */
-static const char *colorname[] = {
-	/* solarized light */
-	"#eee8d5",  /*  0: black    */
-	"#dc322f",  /*  1: red      */
-	"#859900",  /*  2: green    */
-	"#b58900",  /*  3: yellow   */
-	"#268bd2",  /*  4: blue     */
-	"#d33682",  /*  5: magenta  */
-	"#2aa198",  /*  6: cyan     */
-	"#073642",  /*  7: white    */
-	"#fdf6e3",  /*  8: brblack  */
-	"#cb4b16",  /*  9: brred    */
-	"#93a1a1",  /* 10: brgreen  */
-	"#839496",  /* 11: bryellow */
-	"#657b83",  /* 12: brblue   */
-	"#6c71c4",  /* 13: brmagenta*/
-	"#586e75",  /* 14: brcyan   */
-	"#002b36",  /* 15: brwhite  */
+/* Terminal colors dark palette */
+static const char *altcolorname[] = {
+	/* selenized dark */
+
+	"#184956",  /*  0: black, bg_1    */
+	"#fa5750",  /*  1: red      */
+	"#75b938",  /*  2: green    */
+	"#dbb32d",  /*  3: yellow   */
+	"#4695f7",  /*  4: blue     */
+	"#f275be",  /*  5: magenta  */
+	"#41c7b9",  /*  6: cyan     */
+	"#72898f",  /*  7: white, dim_0, base2    */
+	"#2d5b69",  /*  8: brblack, bg_2, base03  */
+	"#ff665c",  /*  9: brred    */
+	"#84c747",  /* 10: brgreen  */
+	"#ebc13d",  /* 11: bryellow */
+	"#58a3ff",  /* 12: brblue   */
+	"#ff84cd",  /* 13: brmagenta*/
+	"#53d6c7",  /* 14: brcyan   */
+	"#cad8d9",  /* 15: brwhite, fg_1  */
+	[255] = 0,
+	"#103c48",  /* 256: bg_0 */
+	"#adbcbc"   /* 257: fg_0 */
 };
 
 
@@ -136,8 +137,8 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 12;
-unsigned int defaultbg = 8;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
 static unsigned int defaultcs = 14;
 static unsigned int defaultrcs = 15;
 
@@ -206,7 +207,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ XK_ANY_MOD,           XK_F6,          swapcolors,     {.i =  0} },
+	{ ShiftMask,            XK_F6,          swapcolors,     {.i =  0} },
 };
 
 /*
