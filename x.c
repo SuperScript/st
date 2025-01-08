@@ -290,9 +290,15 @@ numlock(const Arg *dummy)
 }
 
 void
-swapcolors(const Arg *dummy)
+togglecolors(const Arg *dummy)
 {
 	usealtcolors = !usealtcolors;
+}
+
+void
+swapcolors(const Arg *dummy)
+{
+	togglecolors(dummy);
 	xloadcols();
 	redraw();
 }
@@ -1988,6 +1994,9 @@ main(int argc, char *argv[])
 		break;
 	case 'n':
 		opt_name = EARGF(usage());
+		break;
+	case 's':
+		togglecolors(0);
 		break;
 	case 't':
 	case 'T':
